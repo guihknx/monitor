@@ -9,29 +9,24 @@ var Monitor = {
 			jQuery('#nu').find('tbody').empty().hide();
 			var dados = [],
 			arrLabels = [];
-//var dataClean = data.slice(3);
 
 			$.each(data, function(index) {
-				//jQuery('#nu').find('tbody').append('<tr><td>'+data[index].medicao+'</td><td>'+data[index].data+'</td><td>'+data[index].hora+'</td></tr>').fadeIn();
-				
-				//arrMedicao.push(data[index].medicao);
+
 				removeM = data[index].medicao.replace('m', '');
 				replacedComma = removeM.replace(',', '.');
 				removeFloat = replacedComma.substr(0,4);
 				dados.push(  removeFloat );
-				arrLabels.push(data[index].data + ' às ' + data[index].hora.replace('</', ''));
-				
-
+				arrLabels.push(data[index].data + ' às ' + data[index].hora.replace('</', ''));		
 			});
 
 			var lineChartData = {
 					labels : arrLabels,
 					datasets : [{
-			          fillColor : "rgba(151,187,205,0.5)",
-			          strokeColor : "rgba(151,187,205,1)",
-			          pointColor : "rgba(151,187,205,1)",
-			          pointStrokeColor : "#fff",
-					  data : dados
+						fillColor : "rgba(151,187,205,0.5)",
+						strokeColor : "rgba(151,187,205,1)",
+						pointColor : "rgba(151,187,205,1)",
+						pointStrokeColor : "#fff",
+						data : dados
 					},
 				]
 			};
@@ -79,9 +74,7 @@ var Monitor = {
 			
 			jQuery('#nu').find('tbody').empty().hide();
 
-			//console.log('FOUND IS ->',id,'AND ITS ->',found);
 			$.each(data, function(index) {
-
 				jQuery('#nu').find('tbody')
 				.append('<tr><td>'+data[index].medicao+'</td><td>'+data[index].data+'</td><td>'+data[index].hora.replace('</', '') +'<div class="fb-share-button" data-href="http://guih.us/" data-type="button"></div></td></tr>')
 				.fadeIn(function(){
